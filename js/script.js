@@ -16,11 +16,32 @@
   }); // end DOM ready
 })(jQuery);
 
+
+
+//
+
+const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+
+accordionItemHeaders.forEach(accordionItemHeader => {
+  accordionItemHeader.addEventListener("click", event => {
+
+    accordionItemHeader.classList.toggle("active");
+    const accordionItemBody = accordionItemHeader.nextElementSibling;
+    if(accordionItemHeader.classList.contains("active")) {
+      accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+    }
+    else {
+      accordionItemBody.style.maxHeight = 0;
+    }
+    
+  });
+});
+
 //
 
 var cnt = document.getElementById("count");
 var water = document.getElementById("water");
-var percent = cnt.innerText;
+var percent = cnt.innerHTML;
 var interval;
 interval = setInterval(function () {
   percent++;
@@ -30,5 +51,3 @@ interval = setInterval(function () {
     clearInterval(interval);
   }
 }, 60);
-
-//
