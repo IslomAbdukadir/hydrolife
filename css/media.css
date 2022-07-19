@@ -179,4 +179,8 @@
     iframe {
       width: 320px;
     }
+
+    .contain {
+        height: unset;
+    }
   }
